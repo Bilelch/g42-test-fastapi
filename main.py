@@ -22,9 +22,9 @@ def read_root():
 @app.get("/plant/")
 async def read_plant_data(order: str = None, limit: int = None, state: str = None):
     #read/parse excel file
-    xl_file  = pd.ExcelFile(dataset)
+    #xl_file  = pd.ExcelFile(dataset)
     #create dataframe with only 5 columns needed
-    df = pd.read_excel(dataset, index_col=0,usecols=\
+    df = pd.read_excel(dataset, index_col=0, engine='openpyxl', usecols=\
         ['eGRID2016 Plant file sequence number',\
          'Plant state abbreviation', 'Plant name',\
          'Plant latitude' ,\
@@ -56,9 +56,9 @@ async def read_plant_data(order: str = None, limit: int = None, state: str = Non
 @app.get("/state/")
 async def read_state_data():
     #read/parse excel file
-    xl_file  = pd.ExcelFile(dataset)
+    #xl_file  = pd.ExcelFile(dataset)
     #create dataframe with only 5 columns needed
-    df = pd.read_excel(dataset, index_col=0,usecols=\
+    df = pd.read_excel(dataset, index_col=0, engine='openpyxl', usecols=\
         ['eGRID2016 Plant file sequence number',\
          'Plant state abbreviation', 'Plant name',\
          'Plant latitude' ,\
